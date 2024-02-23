@@ -1,17 +1,16 @@
 package main
 
 import (
+	api "myauth/apis"
+
 	"github.com/gin-gonic/gin"
 )
 
 func main() {
+
 	router := gin.Default()
 
-	router.GET("/", func(ctx *gin.Context) {
-		ctx.JSON(200, gin.H{
-			"message": "Hello, World!",
-		})
-	})
+	api.ApplyRouters(router)
 
-	router.Run(":8080")
+	router.Run(":8090")
 }
