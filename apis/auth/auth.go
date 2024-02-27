@@ -7,9 +7,10 @@ import (
 )
 
 func ApplyRouters(r *gin.RouterGroup) {
+	h := &service.AuthService{}
 	auth := r.Group("/auth")
 	{
-		auth.POST("/register", service.RegisterUser)
-		auth.GET("/login", service.RegisterUser)
+		auth.POST("/register", h.RegisterUser)
+		auth.GET("/login", h.RegisterUser)
 	}
 }
